@@ -1,5 +1,12 @@
-# Thunder33345.github.io
+# Thunder33345's Website - Edited
 
-[View here](https://thunder33345.github.io/)
+[View Original Source](https://github.com/Thunder33345/Thunder33345.github.io/)
 
-My Github Pages...
+## ToDo List
+- [x] Neaten Code
+- [x] Add style.css
+- [ ] Add More Pages
+- [ ] Add More Style
+- [ ] Add A Favicon
+
+
