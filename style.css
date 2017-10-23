@@ -1,0 +1,95 @@
+body {
+  margin: 0px;
+  }
+ 
+.profilebg {
+  width: 100%;
+ 	background: url("resources/profile/banner.jpg")  center center;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  height: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.profilepic {
+  width: 270px;
+  height: 270px;
+  -webkit-border-radius: 37px;
+  -webkit-background-clip: padding-box;
+  -moz-border-radius: 37px;
+  -moz-background-clip: padding;
+  border-radius: 20%;/*Full circle profile pictures are over-rated anyways...*/
+  background-clip: padding-box;
+  margin: 0 0 0 12%;
+  background-size: cover;
+  background-position: center;
+  float: left;
+  /*margin: 8%;*/
+  left:100px
+}
+
+.profileinfo{
+  margin: 0px 35px 0px 0px;
+  color:white;
+  float: right;
+  width: 50%;
+
+  padding: 20px 10px 40px 20px;
+  background-color: rgba(0,0,0,0.57);
+  border-radius: 20%;
+}
+
+ul {
+  list-style: none;
+}
+
+.icon {
+  height: 16px;
+  width: 16px;
+  padding-right: 8px;
+}
+
+.bound{
+  padding: 14% 0px 0px 0px;
+}
+
+/* Mobile Compatability */
+
+@media only screen and (max-device-width: 800px) {
+
+  .profilebg {
+    background-attachment: scroll;
+  }
+    
+  .profilebg{
+    height: 700px;
+  }
+    
+  .profilepic{
+    position: absolute;
+    top: 55;
+    left: 0;
+    right:0;
+    margin: auto;
+  }
+    
+  .profileinfo{
+    float: none;
+    margin: auto;
+    text-align: center;
+    width: unset;
+    padding-top: 350px
+  }
+    
+  .bound{
+    padding:33px 0px 0px 0px;
+  }
+}
+
+
+
+
