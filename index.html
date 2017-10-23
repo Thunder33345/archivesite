@@ -19,9 +19,9 @@
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
-
+  height: 100%;
   /* Set a specific height */
-  height: 405px;
+  /*TODO temp!! height: 405px;*/
   /* Create the parallax scrolling effect (Maybe add it back latter?)*/
   /*BG attatchment kills centering*/
   /*background-attachment: fixed;*/
@@ -40,7 +40,7 @@
   -moz-background-clip: padding;
   border-radius: 20%;/*Full circle profile pictures are over-rated anyways...*/
   background-clip: padding-box;
-  margin: 6% 0 0 12%;
+  margin: 0 0 0 12%;
   background-size: cover;
   background-position: center;
   float: left;
@@ -48,10 +48,14 @@
   left:100px
 }
 .profileinfo{
-  margin:50px 0px 0px 0px;
+  margin: 0px 35px 0px 0px;
   color:white;
   float: right;
   width: 50%;
+
+  padding: 20px 10px 40px 20px;
+  background-color: rgba(0,0,0,0.57);
+  border-radius: 20%;
 }
 ul {
   list-style: none;
@@ -60,6 +64,9 @@ ul {
   height: 16px;
   width: 16px;
   padding-right: 8px;
+}
+.bound{
+  padding: 14% 0px 0px 0px;
 }
 @media only screen and (max-device-width: 800px) {
   /*
@@ -85,6 +92,9 @@ ul {
       width: unset;
       padding-top: 350px
     }
+    .bound{
+      padding:33px 0px 0px 0px;
+    }
 }
 </style>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -101,14 +111,16 @@ ul {
 </head>
 <body>
   <div class="profilebg">
-    <img id="profilepic"src="./resources/profile/profile.jpg" alt="Profile Picture" class="profilepic">
-    <div class="profileinfo">
-      <h2>Thunder33345</h2>
-      <p>Hello Welcome to my website!</p>
-      <p>Just some random person on the internet, not much to say...</p>
-      <p>I like to code occasionally, random just things PHP mainly</p>
-      <p>And as you can see, i am awful at making websites...</p>
+    <div class="bound">
+      <img id="profilepic"src="./resources/profile/profile.jpg" alt="Profile Picture" class="profilepic">
+      <div class="profileinfo">
+        <h2>Thunder33345</h2>
+        <p>Hello Welcome to my website!</p>
+        <p>Just some random person on the internet, not much to say...</p>
+        <p>I like to code occasionally, random just things PHP mainly</p>
+        <p>And as you can see, i am awful at making websites...</p>
       <!-- TODO more Bio? maybe? !-->
+    </div>
   </div>
 </div>
 <div style="
