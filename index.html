@@ -1,17 +1,146 @@
-<!DOCTYPE html>
-<html>
+<head>
+  <title>Thunder's Site</title>
+  <!--
+  My code is awful
+  But if you insist on reading it, so be it
+  please proceed on your own risk
+  i am not liable for any damanged caused by doing so
+  !-->
+  <!-- Favicon maybe? !-->
+  <style>
+  body {margin: 0px;} /*Fix DIV bg not filling in the whole screen*/
 
-  <head>
-    <meta charset='utf-8'>
-    <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <meta name="description" content="Thunder33345 : ">
-    <title>Thunder33345</title>
-  </head>
-  
-  <body>
-<p>haiiiii</p>
-      </section>
-    </div>
-  </body>
-  
+  /*for profile background*/
+  .profilebg {
+  width: 100%;
+	background: url("./ProfileBanner.jpg")  center center;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+
+  /* Set a specific height */
+  height: 405px;
+  /* Create the parallax scrolling effect (Maybe add it back latter?)*/
+  /*BG attatchment kills centering*/
+  /*background-attachment: fixed;*/
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+/*for profile picture*/
+.profilepic {
+  width: 270px;
+  height: 270px;
+  -webkit-border-radius: 37px;
+  -webkit-background-clip: padding-box;
+  -moz-border-radius: 37px;
+  -moz-background-clip: padding;
+  border-radius: 20%;/*Full circle profile pictures are over-rated anyways...*/
+  background-clip: padding-box;
+  margin: 6% 0 0 12%;
+  background-size: cover;
+  background-position: center;
+  float: left;
+  /*margin: 8%;*/
+  left:100px
+}
+.profileinfo{
+  margin:50px 0px 0px 0px;
+  color:white;
+  float: right;
+  width: 50%;
+}
+@media only screen and (max-device-width: 800px) {
+  /*
+  Mobile compatibilitily part here!
+  */
+    .profilebg {
+        background-attachment: scroll;
+    }
+    .profilebg{
+      height: 700px;
+    }
+    .profilepic{
+      position: absolute;
+      top: 55;
+      left: 0;
+      right:0;
+      margin: auto;
+    }
+    .profileinfo{
+      float: none;
+      margin: auto;
+      text-align: center;
+      width: unset;
+      padding-top: 350px
+    }
+}
+</style>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+</head>
+<body>
+  <div class="profilebg">
+    <img id="profilepic"src="./ProfilePicture.jpg" alt="Profile Pictire" class="profilepic">
+    <div class="profileinfo">
+      <h2>Thunder33345</h2>
+      <p>Hello Welcome to my website!</p>
+      <p>Just some random person on the internet, not much to say...</p>
+      <p>I like to code occasionally, random just things PHP mainly</p>
+      <p>And as you can see, i am awful at making websites...</p>
+      <!-- TODO more Bio? maybe? !-->
+  </div>
+</div>
+<div style="
+color: #000;
+background-color:white;
+text-align:center;
+padding: 15px 0px 0px 0px;
+width:100%;
+float:left;
+">
+  <h3 style="text-align: center;">Find Me Over At</h3>
+  <ul style="text-align: left;">
+    <li>Twitter: <a href="https://twitter.com/Thunder33345">@Thunder33345</a></li>
+    <li>Discord: Thunder33345#9999 (Please use my server/twitter to contact me)</li>
+    <li>Discord Server: <a href="https://discord.me/thunder33345">Invite Link Here</a><!--OR <a href="https://discord.gg/uBghvNp">Invite Link Here</a> !-->(Tweet me if it&#39;s broken)</li>
+    <li>My Github: <a href="https://github.com/Thunder33345">Thunder33345</a></li>
+    <li>My PMMP Plugins Github: <a href="https://github.com/ThunderDoesPlugins">ThunderDoesPlugins</a></li>
+    <li>PMMP Forums: <a href="https://forums.pmmp.io/members/thunder33345.15/">Thunder33345</a></li>
+  </ul>
+</div>
+<!-- Maybe add the "My past works?" latter? !-->
+<footer style="text-align:left;margin:0px;">
+  <!-- Known bug, might not show properly on 4K resultion displays !-->
+  <sub><p>A site by <a href="https://thunder33345.github.io">Thunder33345</a></p></sub>
+  </div>
+</footer>
+</body>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--
+There is nothing left;
+to be seen;
+and nothing left;
+to be heard.
+All that remains;
+is the void that envelops us all.
+!-->
 </html>
