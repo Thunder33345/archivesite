@@ -24,54 +24,70 @@
 
 
   <style>
-  body {margin: 0px;} /*Fix DIV bg not filling in the whole screen*/
+  body {
+    margin: 0px;
+    font-family: sans-serif;
+    } /*Fix DIV bg not filling in the whole screen*/
 
-  /*for profile background*/
+  /*Underline for links*/
+  a {
+    border-bottom: 1px dotted #000;
+    text-decoration: none;
+    color: #418aa3;
+    }
+
+  /*For profile background*/
   .profilebg {
+    width: 100%;
+	  background: url("./resources/profile/banner.jpg")  center center;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    height: 100%;
+
+    /*BG attatchment kills centering*/
+    background-attachment: fixed;/*parellax code here*/
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+
+/*Profile overlay to make the words stand out a little bit more*/
+.profileoverlay {
   width: 100%;
-	background: url("./resources/profile/banner.jpg")  center center;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
   height: 100%;
-  /* Set a specific height */
-  /*temp!!(maybe not) height: 405px;*/
-  /* Create the parallax scrolling effect (Maybe add it back latter?)*/
-  /*BG attatchment kills centering*/
-  background-attachment: fixed;/*parellax code here*/
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
+	background-color: rgba(0,0,0,0.25);
 }
 
 /*for profile picture*/
 .profilepic {
   width: 270px;
   height: 270px;
-  -webkit-border-radius: 37px;
-  -webkit-background-clip: padding-box;
-  -moz-border-radius: 37px;
-  -moz-background-clip: padding;
   border-radius: 20%;/*Full circle profile pictures are over-rated anyways...*/
+  -webkit-border-radius: 20%;
+  -webkit-background-clip: padding-box;
+  -moz-border-radius: 20%;
+  -moz-background-clip: padding;
+
   background-clip: padding-box;
   margin: 0 0 0 12%;
   background-size: cover;
   background-position: center;
   float: left;
-  /*margin: 8%;*/
   left:100px
 }
 .profileinfo{
-  margin: 0px 35px 0px 0px;
+  margin: 0px 25px 0px 0px;
   color:white;
   float: right;
   width: 50%;
 
-  padding: 20px 10px 40px 20px;
-  background-color: rgba(0,0,0,0.57);
+  padding: 20px 0px 0px 0px;
+  /*background-color: rgba(0,0,0,0.57);*/
   border-radius: 20%;
 }
+/*Allows custom icons for list*/
 ul {
   list-style: none;
 }
@@ -87,10 +103,9 @@ ul {
   /*
   Mobile compatibilitily part here!
   */
-    .profilebg {
-        background-attachment: scroll;
-    }
+
     .profilebg{
+      background-attachment: scroll;
       height: 700px;
     }
     .profilepic{
@@ -110,6 +125,14 @@ ul {
     .bound{
       padding:33px 0px 0px 0px;
     }
+
+    /*Used only for mobile to prevent info text begin too close to borders*/
+    p {
+      padding: 0px 15px
+    }
+    li{
+      padding: 0px 20px 0px 0px
+    }
 }
 </style>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -126,18 +149,20 @@ ul {
 </head>
 <body>
   <div class="profilebg">
-    <div class="bound">
-      <img id="profilepic"src="./resources/profile/profile.jpg" alt="Profile Picture" class="profilepic">
-      <div class="profileinfo">
-        <h2>Thunder33345</h2>
-        <p>Hello Welcome to my website!</p>
-        <p>Just some random person on the internet, not much to say...</p>
-        <p>I like to code occasionally, random just things PHP mainly</p>
-        <p>And as you can see, i am awful at making websites...</p>
-      <!-- TODO more Bio? maybe? !-->
+    <div class="profileoverlay">
+      <div class="bound">
+        <img id="profilepic"src="./resources/profile/profile.jpg" alt="Profile Picture" class="profilepic">
+        <div class="profileinfo">
+          <h2 style="margin: 0px 0px 25px 0px">Thunder33345</h2>
+          <p>Hello Welcome to my website!</p>
+          <p>Just some random person on the internet, not much to say...</p>
+          <p>I like to code occasionally, random just things PHP mainly</p>
+          <p>And as you can see, i am awful at making websites...</p>
+          <!-- TODO more Bio? maybe? !-->
+        </div>
+      </div>
     </div>
   </div>
-</div>
 <div style="
 color: #000;
 background-color:white;
@@ -146,34 +171,23 @@ padding: 15px 0px 0px 0px;
 width:100%;
 float:left;
 ">
-  <h3 style="text-align: center;">Find Me Over At</h3>
+  <h3 style="text-align: left; padding: 0px 0px 0px 27px">Find Me Over At...</h3>
   <ul style="text-align: left;">
     <li><img class="icon"src="./resources/logo/twitter.png">Twitter: <a href="https://twitter.com/Thunder33345">@Thunder33345</a></li>
-    <li><img class="icon"src="./resources/logo/discord.svg">Discord: Thunder33345#9999 (Please use my server/twitter to contact me)</li>
-    <li><img class="icon"src="./resources/logo/discord.svg">Discord Server: <a href="https://discord.me/thunder33345">Invite Link Here</a><!--OR <a href="https://discord.gg/uBghvNp">Invite Link Here</a> !-->(Tweet me if it&#39;s broken)</li>
-    <li><img class="icon"src="./resources/logo/github.png">My Github: <a href="https://github.com/Thunder33345">Thunder33345</a></li>
-    <li><img class="icon"src="./resources/logo/github.png">My PMMP Plugins Github: <a href="https://github.com/ThunderDoesPlugins">ThunderDoesPlugins</a></li>
+    <li><img class="icon"src="./resources/logo/discord.svg">Discord: Thunder33345#9999 (Please contact me via my server/twitter)</li>
+    <li><img class="icon"src="./resources/logo/discord.svg">Discord Server: <a href="https://discord.me/thunder33345">Invite Link Here</a>(Tweet me if it&#39;s broken)</li>
+    <!--OR https://discord.gg/uBghvNp !-->
+    <li><img class="icon"src="./resources/logo/github.png">Github: <a href="https://github.com/Thunder33345">Thunder33345</a></li>
+    <li><img class="icon"src="./resources/logo/github.png">PMMP Plugins Github: <a href="https://github.com/ThunderDoesPlugins">ThunderDoesPlugins</a></li>
     <li><img class="icon"src="./resources/logo/pmmp.png">PMMP Forums: <a href="https://forums.pmmp.io/members/thunder33345.15/">Thunder33345</a></li>
   </ul>
-  <footer style="text-align:left;margin:0px;">
+  <footer style="text-align:left;margin:0px;padding: 0px 0px 0px 10px">
     <sub><p>A site by <a href="https://thunder33345.github.io">Thunder33345</a></p></sub>
     </div>
   </footer>
 </div>
 <!-- Maybe add the "My past works?" latter? !-->
 </body>
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
