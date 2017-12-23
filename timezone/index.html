@@ -73,8 +73,8 @@
 
       width: 95%;
       max-width: 95%;
-      height:95%;
-      max-height:95%;
+      height: 95%;
+      max-height: 95%;
       border: dotted 1px;
     }
     .boxButton {
@@ -173,17 +173,31 @@
       console.info('Text:', e.text);
       console.info('Trigger:', e.trigger);
       e.clearSelection();
+      let button = document.getElementById('copyButton');
+      button.innerHTML = "Copied!";
+      button.disabled = true;
+      setTimeout(function () {
+        let button = document.getElementById('copyButton');
+        button.innerHTML = "Copy";
+        button.disabled = false;
+      }, 3000)
     });
 
     clipboard.on('error', function (e) {
       console.error('Action:', e.action);
       console.error('Trigger:', e.trigger);
+      let button = document.getElementById('copyButton');
+      button.innerHTML = "Error Copying! Please copy it manually";
+      button.disabled = true;
+      setBox(true);
+      let boxButton = document.getElementById('boxButton');
+      boxButton.disabled = true;
     });
   </script>
   <div class="centerDiv">
     <script>
       if (Clipboard.isSupported()) {
-        document.write("<button class='btn copyButton' data-clipboard-text='" + box + "'>Copy</button>")
+        document.write("<button class='btn copyButton' id='copyButton' data-clipboard-text='" + box + "'>Copy</button>")
       }
     </script>
     <button onclick="toggleBox()" id="boxButton" class="btn boxButton">Show Box</button>
