@@ -21,6 +21,19 @@
   <meta name="twitter:site" content="@thunder33345"/>
   <meta name="twitter:author" content="@thunder33345"/>
 
+  <script src="https://cdn.jsdelivr.net/npm/clipboard@1/dist/clipboard.min.js" integrity="sha384-cV+rhyOuRHc9Ub/91rihWcGmMmCXDeksTtCihMupQHSsi8GIIRDG0ThDc3HGQFJ3" crossorigin="anonymous"></script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-108366469-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+
+    gtag('config', 'UA-108366469-1');
+  </script>
   <style>
     h1 {
       font-size: 6.5vh;
@@ -134,18 +147,6 @@
       }
     }
   </script>
-  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-108366469-1"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-
-    function gtag() {
-      dataLayer.push(arguments);
-    }
-
-    gtag('js', new Date());
-
-    gtag('config', 'UA-108366469-1');
-  </script>
 </head>
 <body>
 <h1>Timezone Teller</h1>
@@ -165,12 +166,31 @@
 
     setTimeout(function () {
       document.getElementById('box').innerHTML = box;
-    }, 1)
+    }, 1);
+
+    clipboard = new Clipboard('.copyButton');
+    clipboard.on('success', function (e) {
+      console.info('Action:', e.action);
+      console.info('Text:', e.text);
+      console.info('Trigger:', e.trigger);
+      e.clearSelection();
+    });
+
+    clipboard.on('error', function (e) {
+      console.error('Action:', e.action);
+      console.error('Trigger:', e.trigger);
+    });
   </script>
   <div class="centerDiv">
     <button onclick="toggleBox()" id="boxButton" class="boxButton">Show Box</button>
+    <script>
+      if (Clipboard.isSupported()) {
+        document.write("<button class='copyButton' data-clipboard-target='#box'>Copy</button>")
+      }
+    </script>
     <div class="boxDiv">
-      <textarea title="test" id="box" class="box" cols="15" rows="6"></textarea>
+      <textarea title="test" content="Loading..." id="box" class="box" cols="15" rows="6"></textarea>
+      <!--/html/body/div/div/div/textarea!-->
     </div>
   </div>
 </div>
