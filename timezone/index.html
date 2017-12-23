@@ -41,7 +41,7 @@
       background-color: #eaeeef;
     }
     hr {
-      margin-bottom: 2vh;
+      margin-bottom: 2.6vh;
     }
     p {
       font-size: 3vh;
@@ -50,7 +50,7 @@
     .content {
       background-color: white;
       border-radius: 6vh;
-      padding: 1.5vh;
+      padding: 3vmax;
     }
     .centerDiv {
       text-align: center;
@@ -64,11 +64,15 @@
       -moz-box-sizing: border-box;
       box-sizing: border-box;
 
-      width: 100%;
       display: none;
-      max-width: 95%;
-      margin-bottom: 1vh;
+      margin-bottom: 1.5vh;
       margin-top: 0.7vh;
+
+      width: 95%;
+      max-width: 95%;
+      height:95%;
+      max-height:95%;
+      border: dotted 1px;
     }
     .boxButton {
       margin-top: 1vh;
@@ -96,23 +100,23 @@
     }
 
     function getTimezone2() {
-      timezone_offset_min = new Date().getTimezoneOffset();
-      offset_hrs = parseInt(Math.abs(timezone_offset_min / 60));
-      offset_min = Math.abs(timezone_offset_min % 60);
+      let timezoneOffsetMin = new Date().getTimezoneOffset();
+      let offsetHrs = parseInt(Math.abs(timezoneOffsetMin / 60));
+      let offsetMin = Math.abs(timezoneOffsetMin % 60);
       let timezone_standard = "Failed";
 
-      if (offset_hrs < 10)
-        offset_hrs = '0' + offset_hrs;
-      if (offset_min < 10)
-        offset_min = '0' + offset_min;
+      if (offsetHrs < 10)
+        offsetHrs = '0' + offsetHrs;
+      if (offsetMin < 10)
+        offsetMin = '0' + offsetMin;
 
       // Add an opposite sign to the offset
       // If offset is 0, it means timezone is UTC
-      if (timezone_offset_min < 0)
-        timezone_standard = '+' + offset_hrs + ':' + offset_min;
-      else if (timezone_offset_min > 0)
-        timezone_standard = '-' + offset_hrs + ':' + offset_min;
-      else if (timezone_offset_min === 0)
+      if (timezoneOffsetMin < 0)
+        timezone_standard = '+' + offsetHrs + ':' + offsetMin;
+      else if (timezoneOffsetMin > 0)
+        timezone_standard = '-' + offsetHrs + ':' + offsetMin;
+      else if (timezoneOffsetMin === 0)
         timezone_standard = '00:00';
       return timezone_standard
     }
