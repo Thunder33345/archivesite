@@ -1,156 +1,160 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta charset="UTF-8">
-    <title>Timezone Teller</title>
-    <style>
-        h1 {
-            font-size: 6.5vh;
-            text-align: center;
-            margin-top:2.5vh;
-            margin-bottom:1.5vh;
-        }
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <title>Timezone Teller</title>
+  <style>
+    h1 {
+      font-size: 6.5vh;
+      text-align: center;
+      margin-top: 2.5vh;
+      margin-bottom: 1.5vh;
+    }
+    body {
+      background-color: #eaeeef;
+    }
+    hr {
+      margin-bottom: 2vh;
+    }
+    .content {
+      background-color: white;
+      border-radius: 6vh;
+      padding: 1.5vh;
+    }
+    p {
+      font-size: 3vh;
+      margin: 0.3vh;
+    }
+    .centerDiv {
+      text-align: center;
+    }
+    .boxDiv {
+      display: flex;
+      justify-content: center;
+    }
+    .box {
+      -webkit-box-sizing: border-box;
+      -moz-box-sizing: border-box;
+      box-sizing: border-box;
 
-        body {
-            background-color: #eaeeef;
-        }
+      width: 100%;
+      display: none;
+      max-width: 95%;
+      margin-bottom: 1vh;
+      margin-top: 0.7vh;
+    }
+    .boxButton {
+      margin-top: 1vh;
+      margin-bottom: 1.2vh;
+    }
+  </style>
+  <script>
+    function hasWorked(text) {
+      return (typeof text === "string" && text.length > 0);
+    }
 
-        hr{
-            margin-bottom: 2vh;
-        }
+    function failText(text) {
+      if (hasWorked(text))
+        return text;
+      return "Failed"
+    }
 
-        .content {
-            background-color: white;
-            border-radius: 6vh;
-            padding: 1.5vh;
-        }
+    function getTimezone1() {
+      let match = new Date().toString().match(/(GMT.?[0-9]{2})([0-9]{2})/);
+      return match[1] + ":" + match[2];
+    }
 
-        p {
-            font-size: 3vh;
-            margin: 0.3vh;
-        }
+    function getTimezone2() {
+      timezone_offset_min = new Date().getTimezoneOffset();
+      offset_hrs = parseInt(Math.abs(timezone_offset_min / 60));
+      offset_min = Math.abs(timezone_offset_min % 60);
+      let timezone_standard = "Failed";
 
-        .centerDiv {
-            text-align: center;
-        }
+      if (offset_hrs < 10)
+        offset_hrs = '0' + offset_hrs;
+      if (offset_min < 10)
+        offset_min = '0' + offset_min;
 
-        .boxDiv {
-            display: flex;
-            justify-content: center;
-        }
+      // Add an opposite sign to the offset
+      // If offset is 0, it means timezone is UTC
+      if (timezone_offset_min < 0)
+        timezone_standard = '+' + offset_hrs + ':' + offset_min;
+      else if (timezone_offset_min > 0)
+        timezone_standard = '-' + offset_hrs + ':' + offset_min;
+      else if (timezone_offset_min === 0)
+        timezone_standard = '00:00';
+      return timezone_standard
+    }
 
-        .box {
-            -webkit-box-sizing: border-box;
-            -moz-box-sizing: border-box;
-            box-sizing: border-box;
+    function write(text, box) {
+      document.write("<p>" + text + "</p>");
+      return box + text + "\n";
+    }
 
-            width: 100%;
-            display: none;
-            max-width: 95%;
-            margin-bottom:1vh;
-            margin-top: 0.7vh;
-        }
-        .boxButton{
-            margin-top: 1vh;
-            margin-bottom:1.2vh;
-        }
-    </style>
-    <script>
-      function hasWorked(text) {
-        return (typeof text === "string" && text.length > 0);
+    function toggleBox() {
+      // get the clock
+      let myBox = document.getElementById('box');
+
+      // get the current value of the clock's display property
+      let displaySetting = myBox.style.display;
+
+      // also get the clock button, so we can change what it says
+      let boxButton = document.getElementById('boxButton');
+
+      // now toggle the clock and the button text, depending on current state
+      if (displaySetting === 'block') {
+        // clock is visible. hide it
+        myBox.style.display = 'none';
+        // change button text
+        boxButton.innerHTML = 'Show Box';
       }
-
-      function failText(text) {
-        if (hasWorked(text))
-          return text;
-        return "Failed"
+      else {
+        // clock is hidden. show it
+        myBox.style.display = 'block';
+        // change button text
+        boxButton.innerHTML = 'Hide Box';
       }
+    }
+  </script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
 
-      function getTimezone1() {
-        let match = new Date().toString().match(/(GMT.?[0-9]{2})([0-9]{2})/);
-        return match[1] + ":" + match[2];
-      }
+    function gtag() {
+      dataLayer.push(arguments);
+    }
 
-      function getTimezone2() {
-        timezone_offset_min = new Date().getTimezoneOffset();
-        offset_hrs = parseInt(Math.abs(timezone_offset_min / 60));
-        offset_min = Math.abs(timezone_offset_min % 60);
-        let timezone_standard = "Failed";
+    gtag('js', new Date());
 
-        if (offset_hrs < 10)
-          offset_hrs = '0' + offset_hrs;
-        if (offset_min < 10)
-          offset_min = '0' + offset_min;
-
-        // Add an opposite sign to the offset
-        // If offset is 0, it means timezone is UTC
-        if (timezone_offset_min < 0)
-          timezone_standard = '+' + offset_hrs + ':' + offset_min;
-        else if (timezone_offset_min > 0)
-          timezone_standard = '-' + offset_hrs + ':' + offset_min;
-        else if (timezone_offset_min === 0)
-          timezone_standard = '00:00';
-        return timezone_standard
-      }
-
-      function write(text, box) {
-        document.write("<p>" + text + "</p>");
-        return box + text + "\n";
-      }
-
-      function toggleBox() {
-        // get the clock
-        let myBox = document.getElementById('box');
-
-        // get the current value of the clock's display property
-        let displaySetting = myBox.style.display;
-
-        // also get the clock button, so we can change what it says
-        let boxButton = document.getElementById('boxButton');
-
-        // now toggle the clock and the button text, depending on current state
-        if (displaySetting === 'block') {
-          // clock is visible. hide it
-          myBox.style.display = 'none';
-          // change button text
-          boxButton.innerHTML = 'Show Box';
-        }
-        else {
-          // clock is hidden. show it
-          myBox.style.display = 'block';
-          // change button text
-          boxButton.innerHTML = 'Hide Box';
-        }
-      }
-    </script>
+    gtag('config', 'UA-108366469-1');
+  </script>
 </head>
 <body>
 <h1>Timezone Teller</h1>
 <hr>
 <div class="content">
-    <script>
-      let box = "";
-      box = write("Current Time Is: " + new Date().toString(), box);
+  <script>
+    let box = "";
+    box = write("Current Time Is: " + new Date().toString(), box);
 
-      timezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
-      timezone = failText(timezone);
-      box = write("Time Zone: " + timezone, box);
+    timezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
+    timezone = failText(timezone);
+    box = write("Time Zone: " + timezone, box);
 
-      let tz1 = getTimezone1();
-      if (hasWorked(tz1)) box = write("GMT: " + failText(tz1), box);
-      else box = write("GMT: " + failText(getTimezone2()), box);
+    let tz1 = getTimezone1();
+    if (hasWorked(tz1)) box = write("GMT: " + failText(tz1), box);
+    else box = write("GMT: " + failText(getTimezone2()), box);
 
-      setTimeout(function () {
-        document.getElementById('box').innerHTML = box;
-      }, 1)
-    </script>
-    <div class="centerDiv">
-        <button onclick="toggleBox()" id="boxButton" class="boxButton">Show Box</button>
-        <div class="boxDiv">
-            <textarea title="test" id="box" class="box" cols="15" rows="6"></textarea>
-        </div>
+    setTimeout(function () {
+      document.getElementById('box').innerHTML = box;
+    }, 1)
+  </script>
+  <div class="centerDiv">
+    <button onclick="toggleBox()" id="boxButton" class="boxButton">Show Box</button>
+    <div class="boxDiv">
+      <textarea title="test" id="box" class="box" cols="15" rows="6"></textarea>
     </div>
+  </div>
 </div>
 </body>
 </html>

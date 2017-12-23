@@ -10,15 +10,15 @@
   <!-- Favicon maybe? !-->
 
   <!-- Open Graph Protocol !-->
-  <html prefix="og: http://ogp.me/ns#">
-  <head prefix="profile: http://ogp.me/ns/profile#">
+  <head prefix="og: http://ogp.me/ns#"></head>
+  <head prefix="profile: http://ogp.me/ns/profile#"></head>
   <!-- <head prefix="namespace: http://url#"> !-->
 
-  <meta property="og:title" content="Thunder's site" />
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://thunder33345.github.io" />
-  <meta property="og:image" content="http://thunder33345.github.io/resources/profile/profile.jpg" />
-  <meta property="og:image:alt" content="My profile picture" />
+  <meta property="og:title" content="Thunder's site"/>
+  <meta property="og:type" content="website"/>
+  <meta property="og:url" content="https://thunder33345.github.io"/>
+  <meta property="og:image" content="http://thunder33345.github.io/resources/profile/profile.jpg"/>
+  <meta property="og:image:alt" content="My profile picture"/>
   <meta property="og:description" content="Welcome to my personal website!"/>
   <meta property="profile:username" content="thunder33345"/>
   <!-- <meta property="" content=""/> -->
@@ -30,173 +30,180 @@
   <meta name="twitter:author" content="@thunder33345"/>
 
   <style>
-  body {
-    margin: 0px;
-    font-family: sans-serif;
-    } /*Fix DIV bg not filling in the whole screen*/
+    body {
+      margin: 0;
+      font-family: sans-serif;
+    }
+    /*Fix DIV bg not filling in the whole screen*/
 
-  /*Underline for links*/
-  a {
-    border-bottom: 1px dotted #000;
-    text-decoration: none;
-    color: #418aa3;
+    /*Underline for links*/
+    a {
+      border-bottom: 1px dotted #000000;
+      text-decoration: none;
+      color: #418aa3;
+    }
+    /*For profile background*/
+    .profileBg {
+      width: 100%;
+      background: url("./resources/profile/banner.jpg") center center;
+      -webkit-background-size: cover;
+      -moz-background-size: cover;
+      -o-background-size: cover;
+      background-size: cover;
+      height: 100%;
+      /*BG attachment kills centering*/
+      background-attachment: fixed; /*parellax code here*/
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+    /*Profile overlay to make the words stand out a little bit more*/
+    .profileOverlay {
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.25);
+    }
+    /*for profile picture*/
+    .profilePic {
+      width: 270px;
+      height: 270px;
+      border-radius: 20%; /*Full circle profile pictures are over-rated anyways...*/
+      -webkit-border-radius: 20%;
+      -webkit-background-clip: padding-box;
+      -moz-border-radius: 20%;
+      -moz-background-clip: padding;
+
+      background-clip: padding-box;
+      margin: 0 0 0 12%;
+      background-size: cover;
+      background-position: center;
+      float: left;
+      left: 100px
+    }
+    .profileInfo {
+      margin: 0 25px 0 0;
+      color: white;
+      float: right;
+      width: 50%;
+
+      padding: 20px 0 0 0;
+      /*background-color: rgba(0,0,0,0.57);*/
+      border-radius: 20%;
+    }
+    /*Allows custom icons for list*/
+    ul {
+      list-style: none;
+    }
+    .icon {
+      height: 16px;
+      width: 16px;
+      padding-right: 8px;
+    }
+    .bound {
+      padding: 13% 0 0 0;
+    }
+    @media only screen and (max-device-width: 800px) {
+      /*
+      Mobile compatibilitily part here!
+      */
+      .profileBg {
+        background-attachment: scroll;
+        height: 700px;
+      }
+      .profilePic {
+        position: absolute;
+        top: 55px;
+        left: 0;
+        right: 0;
+        margin: auto;
+      }
+      .profileInfo {
+        float: none;
+        margin: auto;
+        text-align: center;
+        width: unset;
+        padding-top: 350px
+      }
+      .bound {
+        padding: 33px 0 0 0;
+      }
+      /*Used only for mobile to prevent info text begin too close to borders*/
+      p {
+        padding: 0 15px
+      }
+      li {
+        padding: 0 20px 0 0
+      }
+    }
+  </style>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-108366469-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
     }
 
-  /*For profile background*/
-  .profilebg {
-    width: 100%;
-	  background: url("./resources/profile/banner.jpg")  center center;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
-    height: 100%;
+    gtag('js', new Date());
 
-    /*BG attatchment kills centering*/
-    background-attachment: fixed;/*parellax code here*/
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-  }
-
-/*Profile overlay to make the words stand out a little bit more*/
-.profileoverlay {
-  width: 100%;
-  height: 100%;
-	background-color: rgba(0,0,0,0.25);
-}
-
-/*for profile picture*/
-.profilepic {
-  width: 270px;
-  height: 270px;
-  border-radius: 20%;/*Full circle profile pictures are over-rated anyways...*/
-  -webkit-border-radius: 20%;
-  -webkit-background-clip: padding-box;
-  -moz-border-radius: 20%;
-  -moz-background-clip: padding;
-
-  background-clip: padding-box;
-  margin: 0 0 0 12%;
-  background-size: cover;
-  background-position: center;
-  float: left;
-  left:100px
-}
-.profileinfo{
-  margin: 0px 25px 0px 0px;
-  color:white;
-  float: right;
-  width: 50%;
-
-  padding: 20px 0px 0px 0px;
-  /*background-color: rgba(0,0,0,0.57);*/
-  border-radius: 20%;
-}
-/*Allows custom icons for list*/
-ul {
-  list-style: none;
-}
-.icon {
-  height: 16px;
-  width: 16px;
-  padding-right: 8px;
-}
-.bound{
-  padding: 13% 0px 0px 0px;
-}
-@media only screen and (max-device-width: 800px) {
-  /*
-  Mobile compatibilitily part here!
-  */
-
-    .profilebg{
-      background-attachment: scroll;
-      height: 700px;
-    }
-    .profilepic{
-      position: absolute;
-      top: 55;
-      left: 0;
-      right:0;
-      margin: auto;
-    }
-    .profileinfo{
-      float: none;
-      margin: auto;
-      text-align: center;
-      width: unset;
-      padding-top: 350px
-    }
-    .bound{
-      padding:33px 0px 0px 0px;
-    }
-
-    /*Used only for mobile to prevent info text begin too close to borders*/
-    p {
-      padding: 0px 15px
-    }
-    li{
-      padding: 0px 20px 0px 0px
-    }
-}
-</style>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-108366469-1"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'UA-108366469-1');
-</script>
+    gtag('config', 'UA-108366469-1');
+  </script>
 
 </head>
 <body>
-  <div class="profilebg">
-    <div class="profileoverlay">
-      <div class="bound">
-        <img id="profilepic"src="./resources/profile/profile.jpg" alt="Profile Picture" class="profilepic">
-        <div class="profileinfo">
-          <h2 style="margin: 0px 0px 25px 0px">Thunder33345</h2>
-          <p>Hello Welcome to my website!</p>
-          <p>Just some random person on the internet, not much to say...</p>
-          <p>I like to code occasionally, random just things PHP mainly</p>
-          <p>And as you can see, i am awful at making websites...</p>
-          <!-- TODO more Bio? maybe? !-->
-        </div>
+<div class="profileBg">
+  <div class="profileOverlay">
+    <div class="bound">
+      <img id="profilepic" src="./resources/profile/profile.jpg" alt="Profile Picture" class="profilePic">
+      <div class="profileInfo">
+        <h2 style="margin: 0 0 25px 0">Thunder33345</h2>
+        <p>Hello Welcome to my website!</p>
+        <p>Just some random person on the internet, not much to say...</p>
+        <p>I like to code occasionally, random just things PHP mainly</p>
+        <p>And as you can see, i am awful at making websites...</p>
+        <!-- TODO more Bio? maybe? !-->
       </div>
     </div>
   </div>
+</div>
 <div style="
-color: #000;
+color: #000000;
 background-color:white;
 text-align:center;
-padding: 15px 0px 0px 0px;
+padding: 15px 0 0 0;
 width:100%;
 float:left;
 ">
-  <h3 style="text-align: left; padding: 0px 0px 0px 27px">Find Me Over At...</h3>
+  <h3 style="text-align: left; padding: 0 0 0 27px">Find Me Over At...</h3>
   <ul style="text-align: left;">
-    <li><img class="icon"src="./resources/logo/twitter.png">Twitter: <a target="_blank" href="https://twitter.com/Thunder33345">@Thunder33345</a></li>
-    <li><img class="icon"src="./resources/logo/discord.svg">Discord: Thunder33345#9999 (Please contact me via my server/twitter)</li>
-    <li><img class="icon"src="./resources/logo/discord.svg">Discord Server: <a target="_blank" href="https://discord.me/thunder33345">Invite Link Here</a>(Tweet me if it&#39;s broken)</li>
+    <li><img class="icon" src="./resources/logo/twitter.png">Twitter:
+      <a target="_blank" href="https://twitter.com/Thunder33345">@Thunder33345</a>
+    </li>
+    <li><img class="icon" src="./resources/logo/discord.svg">Discord: Thunder33345#9999 (Please contact me via my
+      server/twitter)
+    </li>
+    <li><img class="icon" src="./resources/logo/discord.svg">Discord Server:
+      <a target="_blank" href="https://discord.me/thunder33345">Invite
+        Link Here</a>(Tweet me if it&#39;s broken)
+    </li>
     <!--OR https://discord.gg/uBghvNp !-->
-    <li><img class="icon"src="./resources/logo/github.png">Github: <a target="_blank" href="https://github.com/Thunder33345">Thunder33345</a></li>
-    <li><img class="icon"src="./resources/logo/github.png">PMMP Plugins Github: <a target="_blank" href="https://github.com/ThunderDoesPlugins">ThunderDoesPlugins</a></li>
-    <li><img class="icon"src="./resources/logo/pmmp.png">PMMP Forums: <a target="_blank" href="https://forums.pmmp.io/members/thunder33345.15/">Thunder33345</a></li>
+    <li><img class="icon" src="./resources/logo/github.png">Github:
+      <a target="_blank" href="https://github.com/Thunder33345">Thunder33345</a>
+    </li>
+    <li><img class="icon" src="./resources/logo/github.png">PMMP Plugins Github:
+      <a target="_blank" href="https://github.com/ThunderDoesPlugins">ThunderDoesPlugins</a>
+    </li>
+    <li><img class="icon" src="./resources/logo/pmmp.png">PMMP Forums:
+      <a target="_blank" href="https://forums.pmmp.io/members/thunder33345.15/">Thunder33345</a>
+    </li>
   </ul>
-  <footer style="text-align:left;margin:0px;padding: 0px 0px 0px 10px">
-    <sub><p>A site by <a href="https://thunder33345.github.io">Thunder33345</a></p></sub>
-    </div>
+  <footer style="text-align:left;margin:0;padding: 0 0 0 10px">
+    <p><sub>A site by <a href="https://thunder33345.github.io">Thunder33345</a></sub></p>
   </footer>
 </div>
 <!-- Maybe add the "My past works?" latter? !-->
 </body>
-
-
-
 
 
 <!--
