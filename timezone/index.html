@@ -24,15 +24,11 @@
   <script src="https://cdn.jsdelivr.net/npm/clipboard@1/dist/clipboard.min.js" integrity="sha384-cV+rhyOuRHc9Ub/91rihWcGmMmCXDeksTtCihMupQHSsi8GIIRDG0ThDc3HGQFJ3" crossorigin="anonymous"></script>
   <script async src="https://www.googletagmanager.com/gtag/js?id=UA-108366469-1"></script>
   <script>
+    //@formatter:off
     window.dataLayer = window.dataLayer || [];
-
-    function gtag() {
-      dataLayer.push(arguments);
-    }
-
-    gtag('js', new Date());
-
-    gtag('config', 'UA-108366469-1');
+    function gtag() {dataLayer.push(arguments);}
+    gtag('js', new Date());gtag('config', 'UA-108366469-1');
+    //@formatter:on
   </script>
   <style>
     h1 {
@@ -47,14 +43,14 @@
     hr {
       margin-bottom: 2vh;
     }
+    p {
+      font-size: 3vh;
+      margin: 0.3vh;
+    }
     .content {
       background-color: white;
       border-radius: 6vh;
       padding: 1.5vh;
-    }
-    p {
-      font-size: 3vh;
-      margin: 0.3vh;
     }
     .centerDiv {
       text-align: center;
@@ -77,6 +73,10 @@
     .boxButton {
       margin-top: 1vh;
       margin-bottom: 1.2vh;
+    }
+    .btn {
+      margin-left: 0.3vh;
+      margin-right: 0.3vh;
     }
   </style>
   <script>
@@ -122,29 +122,21 @@
       return box + text + "\n";
     }
 
-    function toggleBox() {
-      // get the clock
+    function setBox(visible) {
       let myBox = document.getElementById('box');
-
-      // get the current value of the clock's display property
       let displaySetting = myBox.style.display;
-
-      // also get the clock button, so we can change what it says
       let boxButton = document.getElementById('boxButton');
-
-      // now toggle the clock and the button text, depending on current state
-      if (displaySetting === 'block') {
-        // clock is visible. hide it
+      if (visible === true) {
+        myBox.style.display = 'block';
+        boxButton.innerHTML = 'Hide Box';
+      } else {
         myBox.style.display = 'none';
-        // change button text
         boxButton.innerHTML = 'Show Box';
       }
-      else {
-        // clock is hidden. show it
-        myBox.style.display = 'block';
-        // change button text
-        boxButton.innerHTML = 'Hide Box';
-      }
+    }
+
+    function toggleBox() {
+      if (document.getElementById('box').style.display === 'block') setBox(false); else setBox(true);
     }
   </script>
 </head>
@@ -182,14 +174,14 @@
     });
   </script>
   <div class="centerDiv">
-    <button onclick="toggleBox()" id="boxButton" class="boxButton">Show Box</button>
     <script>
       if (Clipboard.isSupported()) {
-        document.write("<button class='copyButton' data-clipboard-target='#box'>Copy</button>")
+        document.write("<button class='btn copyButton' data-clipboard-text='" + box + "'>Copy</button>")
       }
     </script>
+    <button onclick="toggleBox()" id="boxButton" class="btn boxButton">Show Box</button>
     <div class="boxDiv">
-      <textarea title="test" content="Loading..." id="box" class="box" cols="15" rows="6"></textarea>
+      <textarea title="test" id="box" class="box" cols="15" rows="6">Loading...</textarea>
       <!--/html/body/div/div/div/textarea!-->
     </div>
   </div>
