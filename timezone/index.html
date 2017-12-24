@@ -106,7 +106,7 @@
 
     function getTimezone2() {
       let timezoneOffsetMin = new Date().getTimezoneOffset();
-      let offsetHrs = parseInt(Math.abs(timezoneOffsetMin / 60));
+      let offsetHrs = parseInt((Math.abs(timezoneOffsetMin / 60)));
       let offsetMin = Math.abs(timezoneOffsetMin % 60);
       let timezone_standard = "Failed";
 
@@ -153,7 +153,16 @@
 <h1>Timezone Teller</h1>
 <hr>
 <div class="content">
+  <div id="warn">
+    <p><b>Sorry but this website rely on JavaScript to function, Please enable it first to use this website</b></p>
+    <p>Here are the
+      <a href="https://www.enable-javascript.com/" target="_blank">instructions how to enable JavaScript in your web browser</a>.
+    </p>
+  </div>
   <script>
+    //document.getElementById('warn').style.visibilitity = 'hidden';
+    let element = document.getElementById('warn');
+    element.parentNode.removeChild(element);
     let box = "";
     box = write("Current Time Is: " + new Date().toString(), box);
 
@@ -201,8 +210,8 @@
       if (Clipboard.isSupported()) {
         document.write("<button class='btn copyButton' id='copyButton' data-clipboard-text='" + box + "'>Copy</button>")
       }
+      document.write("<button onclick=\"toggleBox()\" id=\"boxButton\" class=\"btn boxButton\">Show Box</button>")
     </script>
-    <button onclick="toggleBox()" id="boxButton" class="btn boxButton">Show Box</button>
     <div class="boxDiv">
       <textarea title="test" id="box" class="box" cols="15" rows="6">Loading...</textarea>
       <!--/html/body/div/div/div/textarea!-->
